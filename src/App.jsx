@@ -9,6 +9,9 @@ import { AuthProvider } from "./components/AuthProvider.jsx";
 import NotificationList from './components/NotificationList';
 import MessageForm from './components/MessageForm';
 import MessageList from './components/MessageList';
+import PaymentForm from './components/PaymentForm';
+import TransactionHistory from './components/TransactionHistory';
+import RefundForm from './components/RefundForm';
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
           <Route path="/notifications" element={<NotificationList />} />
           <Route path="/messages" element={<MessageForm />} />
           <Route path="/message-list" element={<MessageList />} />
+          <Route path="/payment" element={<PaymentForm />} />
+          <Route path="/transactions" element={<TransactionHistory />} />
+          <Route path="/refund" element={<RefundForm />} />
         </Routes>
       </Router>
     </AuthProvider>
