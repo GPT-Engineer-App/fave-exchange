@@ -37,9 +37,14 @@ export const AuthProvider = ({ children }) => {
     }
   }, [currentUser]);
 
+  const addPoints = (points) => {
+    // Function to add points to the user
+  };
+
   const value = {
     currentUser,
     typingUsers,
+    addPoints, // Add this line
   };
 
   return (
