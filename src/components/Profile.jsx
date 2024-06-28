@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { getFirestore, doc, updateDoc, getDoc } from 'firebase/firestore';
+import PointsSystem from './PointsSystem';
+import Badges from './Badges';
 
 const Profile = () => {
   const { currentUser } = useAuth();
@@ -124,6 +126,8 @@ const Profile = () => {
       <Button variant="destructive" onClick={handleDeleteProfile} disabled={loading}>
         Delete Profile
       </Button>
+      <PointsSystem />
+      <Badges />
     </div>
   );
 };
