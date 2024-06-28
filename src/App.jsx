@@ -4,6 +4,7 @@ import Index from "./pages/Index.jsx";
 import SignUp from "./components/SignUp.jsx";
 import Login from "./components/Login.jsx";
 import Profile from "./components/Profile.jsx";
+import ServiceListings from './pages/ServiceListings.jsx';
 import { AuthProvider } from "./components/AuthProvider.jsx";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/service-listings" element={<ServiceListings />} />
         </Routes>
       </Router>
     </AuthProvider>
