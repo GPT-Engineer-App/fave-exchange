@@ -6,6 +6,9 @@ import Login from "./components/Login.jsx";
 import Profile from "./components/Profile.jsx";
 import ServiceListings from './pages/ServiceListings.jsx';
 import { AuthProvider } from "./components/AuthProvider.jsx";
+import NotificationList from './components/NotificationList';
+import MessageForm from './components/MessageForm';
+import MessageList from './components/MessageList';
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/service-listings" element={<ServiceListings />} />
+          <Route path="/notifications" element={<NotificationList />} />
+          <Route path="/messages" element={<MessageForm />} />
+          <Route path="/message-list" element={<MessageList />} />
         </Routes>
       </Router>
     </AuthProvider>
