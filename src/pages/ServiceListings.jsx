@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ServiceForm from '../components/ServiceForm';
 import ServiceList from '../components/ServiceList';
+import ReviewForm from '../components/ReviewForm';
+import ReviewList from '../components/ReviewList';
 import { v4 as uuidv4 } from 'uuid';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
@@ -14,6 +16,7 @@ const ServiceListings = () => {
   const [filterCategory, setFilterCategory] = useState('');
   const [sortOption, setSortOption] = useState('');
   const [featuredServices, setFeaturedServices] = useState([]);
+  const [selectedServiceId, setSelectedServiceId] = useState(null);
 
   useEffect(() => {
     // Fetch or set featured services here
@@ -85,10 +88,15 @@ const ServiceListings = () => {
       />
       <ServiceList
         services={filteredServices}
-        onEdit={(service) => setEditingService(service)}
+        onEdit={(service) => {
+          setEditingService(service);
+          setSelectedServiceId(service.id);
+        }}
         onDelete={handleDeleteService}
         featuredServices={featuredServices}
       />
+      <ReviewForm serviceId={selectedServiceId} />
+      <ReviewList serviceId={selectedServiceId} />
     </div>
   );
 };
