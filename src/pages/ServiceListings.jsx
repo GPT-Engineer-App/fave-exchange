@@ -8,6 +8,10 @@ import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { Slider } from '@/components/ui/slider';
+import { Checkbox } from '@/components/ui/checkbox';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
 const ServiceListings = () => {
   const [services, setServices] = useState([]);
@@ -17,13 +21,16 @@ const ServiceListings = () => {
   const [sortOption, setSortOption] = useState('');
   const [featuredServices, setFeaturedServices] = useState([]);
   const [selectedServiceId, setSelectedServiceId] = useState(null);
+  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [availability, setAvailability] = useState(false);
+  const [location, setLocation] = useState([51.505, -0.09]);
 
   useEffect(() => {
     // Fetch or set featured services here
     setFeaturedServices([
       // Example featured services
-      { id: uuidv4(), title: 'Featured Service 1', description: 'Description 1', category: 'Category1', tags: 'tag1, tag2' },
-      { id: uuidv4(), title: 'Featured Service 2', description: 'Description 2', category: 'Category2', tags: 'tag3, tag4' },
+      { id: uuidv4(), title: 'Featured Service 1', description: 'Description 1', category: 'Category1', tags: 'tag1, tag2', price: 50, available: true, location: [51.505, -0.09] },
+      { id: uuidv4(), title: 'Featured Service 2', description: 'Description 2', category: 'Category2', tags: 'tag3, tag4', price: 75, available: false, location: [51.515, -0.1] },
     ]);
   }, []);
 
@@ -48,6 +55,12 @@ const ServiceListings = () => {
     )
     .filter(service => 
       filterCategory ? service.category === filterCategory : true
+    )
+    .filter(service => 
+      service.price >= priceRange[0] && service.price <= priceRange[1]
+    )
+    .filter(service => 
+      availability ? service.available === availability : true
     )
     .sort((a, b) => {
       if (sortOption === 'title') {
@@ -82,9 +95,18 @@ const ServiceListings = () => {
           <option value="category">Category</option>
         </Select>
       </div>
+      <div className="mb-4">
+        <Label htmlFor="price-range">Price Range</Label>
+        <Slider id="price-range" value={priceRange} onChange={setPriceRange} max={100} step={1} />
+        <div>Price: {priceRange[0]} - {priceRange[1]}</div>
+      </div>
+      <div className="mb-4">
+        <Label htmlFor="availability">Availability</Label>
+        <Checkbox id="availability" checked={availability} onChange={(e) => setAvailability(e.target.checked)} />
+      </div>
       <ServiceForm
         onSubmit={editingService ? handleEditService : handleAddService}
-        defaultValues={editingService || { title: '', description: '', category: '', tags: '' }}
+        defaultValues={editingService || { title: '', description: '', category: '', tags: '', price: 0, available: false, location: [51.505, -0.09] }}
       />
       <ServiceList
         services={filteredServices}
@@ -97,6 +119,25 @@ const ServiceListings = () => {
       />
       <ReviewForm serviceId={selectedServiceId} />
       <ReviewList serviceId={selectedServiceId} />
+      <div className="mt-4">
+        <h2 className="text-2xl mb-4">Map View</h2>
+        <MapContainer center={location} zoom={13} style={{ height: '400px', width: '100%' }}>
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          {filteredServices.map(service => (
+            <Marker key={service.id} position={service.location}>
+              <Popup>
+                <strong>{service.title}</strong><br />
+                {service.description}<br />
+                Price: {service.price}<br />
+                {service.available ? 'Available' : 'Not Available'}
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      </div>
     </div>
   );
 };
