@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'react-toastify';
+import { getFirestore, collection, addDoc, serverTimestamp, doc, updateDoc, getDoc } from 'firebase/firestore';
+import { useAuth } from './AuthProvider';
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -12,6 +14,7 @@ const PaymentForm = () => {
   const [{ isPending }] = usePayPalScriptReducer();
   const [loading, setLoading] = useState(false);
   const [amount, setAmount] = useState('');
+  const { currentUser } = useAuth();
 
   const handleStripePayment = async (e) => {
     e.preventDefault();
@@ -39,15 +42,31 @@ const PaymentForm = () => {
     // Send paymentMethod.id and amount to your server for processing
     // Example: await processPayment(paymentMethod.id, amount);
 
+    await updateUserScore(amount);
+
     toast.success('Payment successful!');
     setLoading(false);
   };
 
-  const handlePayPalPayment = (details, data) => {
+  const handlePayPalPayment = async (details, data) => {
     // Send details.id and amount to your server for processing
     // Example: await processPayment(details.id, amount);
 
+    await updateUserScore(amount);
+
     toast.success('Payment successful!');
+  };
+
+  const updateUserScore = async (amount) => {
+    const db = getFirestore();
+    const userDoc = doc(db, 'users', currentUser.uid);
+    const userSnap = await getDoc(userDoc);
+
+    if (userSnap.exists()) {
+      const currentScore = userSnap.data().score || 0;
+      const newScore = currentScore + parseFloat(amount);
+      await updateDoc(userDoc, { score: newScore });
+    }
   };
 
   return (
