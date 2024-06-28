@@ -12,6 +12,7 @@ import MessageList from './components/MessageList';
 import PaymentForm from './components/PaymentForm';
 import TransactionHistory from './components/TransactionHistory';
 import RefundForm from './components/RefundForm';
+import AdminPanel from "./pages/AdminPanel.jsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/payment" element={<PaymentForm />} />
           <Route path="/transactions" element={<TransactionHistory />} />
           <Route path="/refund" element={<RefundForm />} />
+        <Route path="/admin" element={<AdminPanel />} />
         </Routes>
       </Router>
     </AuthProvider>
