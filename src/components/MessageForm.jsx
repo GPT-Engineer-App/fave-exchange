@@ -7,7 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { toast } from 'react-toastify';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { useDropzone } from 'react-dropzone';
 import { useAuth } from './AuthProvider';
 
 const schema = z.object({
@@ -27,6 +28,14 @@ const MessageForm = () => {
 
   const [loading, setLoading] = useState(false);
 
+  const [files, setFiles] = useState([]);
+
+  const onDrop = (acceptedFiles) => {
+    setFiles(acceptedFiles);
+  };
+
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+
   const onSubmit = async (data) => {
     setLoading(true);
     try {
@@ -34,7 +43,12 @@ const MessageForm = () => {
       await addDoc(collection(db, 'messages'), {
         ...data,
         sender: currentUser.email,
-        createdAt: new Date(),
+        createdAt: serverTimestamp(),
+        files: files.map(file => ({
+          name: file.name,
+          type: file.type,
+          size: file.size,
+        })),
       });
       toast.success('Message sent successfully!');
     } catch (error) {
@@ -54,6 +68,10 @@ const MessageForm = () => {
         <Label htmlFor="message">Message</Label>
         <Textarea id="message" {...register('message')} />
         {errors.message && <p className="text-red-500">{errors.message.message}</p>}
+      </div>
+      <div {...getRootProps()} className="mb-4 border-dashed border-2 p-4">
+        <input {...getInputProps()} />
+        <p>Drag & drop some files here, or click to select files</p>
       </div>
       <Button type="submit" disabled={loading}>Send Message</Button>
     </form>
