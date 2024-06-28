@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { PayPalButton } from 'react-paypal-button-v2';
+import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+  const [{ isPending }] = usePayPalScriptReducer();
   const [loading, setLoading] = useState(false);
   const [amount, setAmount] = useState('');
 
@@ -72,13 +73,17 @@ const PaymentForm = () => {
         </Button>
       </form>
       <div className="mt-4">
-        <PayPalButton
-          amount={amount}
-          onSuccess={handlePayPalPayment}
-          options={{
-            clientId: 'YOUR_PAYPAL_CLIENT_ID',
-          }}
-        />
+        {isPending ? (
+          <div>Loading PayPal...</div>
+        ) : (
+          <PayPalButtons
+            amount={amount}
+            onSuccess={handlePayPalPayment}
+            options={{
+              clientId: 'YOUR_PAYPAL_CLIENT_ID',
+            }}
+          />
+        )}
       </div>
     </div>
   );
