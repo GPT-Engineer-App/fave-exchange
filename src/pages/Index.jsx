@@ -18,6 +18,9 @@ const Index = () => {
             <Link to="/profile">
               <Button>Profile</Button>
             </Link>
+            <Link to="/service-requests">
+              <Button>Service Requests</Button>
+            </Link>
           </div>
         ) : (
           <div className="text-center">
