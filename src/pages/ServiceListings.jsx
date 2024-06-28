@@ -12,6 +12,9 @@ import { Slider } from '@/components/ui/slider';
 import { Checkbox } from '@/components/ui/checkbox';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
+import { useAuth } from '../components/AuthProvider';
+import * as tf from '@tensorflow/tfjs';
 
 const ServiceListings = () => {
   const [services, setServices] = useState([]);
@@ -24,6 +27,8 @@ const ServiceListings = () => {
   const [priceRange, setPriceRange] = useState([0, 100]);
   const [availability, setAvailability] = useState(false);
   const [location, setLocation] = useState([51.505, -0.09]);
+  const [recommendedServices, setRecommendedServices] = useState([]);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     // Fetch or set featured services here
@@ -33,6 +38,31 @@ const ServiceListings = () => {
       { id: uuidv4(), title: 'Featured Service 2', description: 'Description 2', category: 'Category2', tags: 'tag3, tag4', price: 75, available: false, location: [51.515, -0.1] },
     ]);
   }, []);
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchRecommendedServices(currentUser.uid);
+    }
+  }, [currentUser]);
+
+  const fetchRecommendedServices = async (userId) => {
+    const db = getFirestore();
+    const userBehaviorRef = collection(db, 'userBehavior');
+    const q = query(userBehaviorRef, where('userId', '==', userId));
+    const querySnapshot = await getDocs(q);
+    const userBehaviorData = querySnapshot.docs.map(doc => doc.data());
+
+    // Assuming userBehaviorData contains an array of user interactions
+    const recommendations = generateRecommendations(userBehaviorData);
+    setRecommendedServices(recommendations);
+  };
+
+  const generateRecommendations = (userBehaviorData) => {
+    // Placeholder for the recommendation algorithm
+    // This is where you would use TensorFlow.js or another ML library to generate recommendations
+    // For simplicity, we'll just return a subset of services as recommendations
+    return services.slice(0, 3);
+  };
 
   const handleAddService = (data) => {
     setServices([...services, { ...data, id: uuidv4() }]);
@@ -119,6 +149,17 @@ const ServiceListings = () => {
       />
       <ReviewForm serviceId={selectedServiceId} />
       <ReviewList serviceId={selectedServiceId} />
+      <div className="mt-4">
+        <h2 className="text-2xl mb-4">Recommended Services</h2>
+        <ServiceList
+          services={recommendedServices}
+          onEdit={(service) => {
+            setEditingService(service);
+            setSelectedServiceId(service.id);
+          }}
+          onDelete={handleDeleteService}
+        />
+      </div>
       <div className="mt-4">
         <h2 className="text-2xl mb-4">Map View</h2>
         <MapContainer center={location} zoom={13} style={{ height: '400px', width: '100%' }}>

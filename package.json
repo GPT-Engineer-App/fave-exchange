@@ -41,6 +41,7 @@
     "@radix-ui/react-tooltip": "^1.1.0",
     "@stripe/react-stripe-js": "^1.16.5",
     "@stripe/stripe-js": "^1.54.2",
+    "@tensorflow/tfjs": "^4.20.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cmdk": "^1.0.0",
