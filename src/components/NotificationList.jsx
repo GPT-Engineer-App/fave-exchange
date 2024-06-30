@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import { useAuth } from './AuthProvider';
+import { FaBell } from 'react-icons/fa';
 
 const NotificationList = () => {
   const { currentUser } = useAuth();
@@ -20,7 +21,7 @@ const NotificationList = () => {
 
   return (
     <div>
-      <h2 className="text-2xl mb-4">Notifications</h2>
+      <h2 className="text-2xl mb-4"><FaBell /> Notifications</h2>
       {notifications.length > 0 ? (
         notifications.map((notification, index) => (
           <div key={index} className="mb-4 p-4 border rounded">

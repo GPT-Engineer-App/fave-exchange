@@ -15,6 +15,7 @@ import 'leaflet/dist/leaflet.css';
 import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
 import { useAuth } from '../components/AuthProvider';
 import * as tf from '@tensorflow/tfjs';
+import { FaListAlt, FaFilter, FaSort, FaMapMarkerAlt } from 'react-icons/fa';
 
 const ServiceListings = () => {
   const [services, setServices] = useState([]);
@@ -103,13 +104,13 @@ const ServiceListings = () => {
 
   return (
     <div>
-      <h1 className="text-3xl mb-4">Service Listings</h1>
+      <h1 className="text-3xl mb-4"><FaListAlt /> Service Listings</h1>
       <div className="mb-4">
         <Label htmlFor="search">Search</Label>
         <Input id="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
       </div>
       <div className="mb-4">
-        <Label htmlFor="filter">Filter by Category</Label>
+        <Label htmlFor="filter"><FaFilter /> Filter by Category</Label>
         <Select id="filter" value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>
           <option value="">All</option>
           <option value="Category1">Category1</option>
@@ -118,7 +119,7 @@ const ServiceListings = () => {
         </Select>
       </div>
       <div className="mb-4">
-        <Label htmlFor="sort">Sort by</Label>
+        <Label htmlFor="sort"><FaSort /> Sort by</Label>
         <Select id="sort" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
           <option value="">None</option>
           <option value="title">Title</option>
@@ -161,7 +162,7 @@ const ServiceListings = () => {
         />
       </div>
       <div className="mt-4">
-        <h2 className="text-2xl mb-4">Map View</h2>
+        <h2 className="text-2xl mb-4"><FaMapMarkerAlt /> Map View</h2>
         <MapContainer center={location} zoom={13} style={{ height: '400px', width: '100%' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getFirestore, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { useAuth } from './AuthProvider';
 import { toast } from 'react-toastify';
+import { FaStar } from 'react-icons/fa';
 
 const PointsSystem = () => {
   const { currentUser } = useAuth();
@@ -38,7 +39,7 @@ const PointsSystem = () => {
 
   return (
     <div>
-      <h2 className="text-2xl mb-4">Your Points: {points}</h2>
+      <h2 className="text-2xl mb-4"><FaStar /> Your Points: {points}</h2>
       <button onClick={() => addPoints(currentUser.uid, 10)}>Add 10 Points</button>
     </div>
   );

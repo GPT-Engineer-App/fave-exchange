@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { FaSignInAlt } from 'react-icons/fa';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -30,7 +31,7 @@ const Login = () => {
 
   return (
     <div>
-      <h2 className="text-center text-2xl mb-4">Log In</h2>
+      <h2 className="text-center text-2xl mb-4"><FaSignInAlt /> Log In</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

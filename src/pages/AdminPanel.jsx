@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaUserShield, FaServicestack, FaMoneyCheckAlt, FaStarHalfAlt } from 'react-icons/fa';
 import { getFirestore, collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -60,10 +61,10 @@ const AdminPanel = () => {
       <h1 className="text-3xl mb-4">Admin Panel</h1>
       <Tabs defaultValue="users">
         <TabsList>
-          <TabsTrigger value="users">Users</TabsTrigger>
-          <TabsTrigger value="services">Services</TabsTrigger>
-          <TabsTrigger value="transactions">Transactions</TabsTrigger>
-          <TabsTrigger value="reviews">Reviews</TabsTrigger>
+          <TabsTrigger value="users"><FaUserShield /> Users</TabsTrigger>
+          <TabsTrigger value="services"><FaServicestack /> Services</TabsTrigger>
+          <TabsTrigger value="transactions"><FaMoneyCheckAlt /> Transactions</TabsTrigger>
+          <TabsTrigger value="reviews"><FaStarHalfAlt /> Reviews</TabsTrigger>
         </TabsList>
         <TabsContent value="users">
           <Table>

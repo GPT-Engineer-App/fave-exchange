@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { useAuth } from './AuthProvider';
+import { FaMedal } from 'react-icons/fa';
 
 const Badges = () => {
   const { currentUser } = useAuth();
@@ -27,7 +28,7 @@ const Badges = () => {
       <h2 className="text-2xl mb-4">Your Badges</h2>
       <ul>
         {badges.map((badge, index) => (
-          <li key={index}>{badge}</li>
+          <li key={index}><FaMedal /> {badge}</li>
         ))}
       </ul>
     </div>

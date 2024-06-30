@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaUsers } from 'react-icons/fa';
 import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
 import { useAuth } from './AuthProvider';
 import { Button } from '@/components/ui/button';
@@ -47,7 +48,7 @@ const GroupServices = () => {
 
   return (
     <div>
-      <h2 className="text-2xl mb-4">Group Services</h2>
+      <h2 className="text-2xl mb-4"><FaUsers /> Group Services</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <Label htmlFor="title">Title</Label>

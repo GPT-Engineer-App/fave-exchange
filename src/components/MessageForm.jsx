@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
+import { FaPaperPlane } from 'react-icons/fa';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -73,7 +74,7 @@ const MessageForm = () => {
         <input {...getInputProps()} />
         <p>Drag & drop some files here, or click to select files</p>
       </div>
-      <Button type="submit" disabled={loading}>Send Message</Button>
+      <Button type="submit" disabled={loading}><FaPaperPlane /> Send Message</Button>
     </form>
   );
 };
