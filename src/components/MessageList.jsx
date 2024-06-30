@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaEnvelopeOpenText } from 'react-icons/fa';
 import { getFirestore, collection, query, where, getDocs, onSnapshot, updateDoc, doc } from 'firebase/firestore';
 import { useAuth } from './AuthProvider';
 
@@ -40,7 +41,7 @@ const MessageList = () => {
 
   return (
     <div>
-      <h2 className="text-2xl mb-4">Messages</h2>
+      <h2 className="text-2xl mb-4"><FaEnvelopeOpenText /> Messages</h2>
       {messages.length > 0 ? (
         messages.map((message, index) => (
           <div key={index} className="mb-4 p-4 border rounded" onClick={() => handleReadReceipt(message.id)}>

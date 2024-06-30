@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaRocket, FaStar, FaUsers } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TestimonialCard } from '@/components/TestimonialCard';
@@ -8,7 +9,7 @@ const LandingPage = () => {
   return (
     <div className="container mx-auto p-8">
       <header className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Faving</h1>
+        <h1 className="text-4xl font-bold mb-4"><FaRocket /> Welcome to Faving</h1>
         <p className="text-lg">Discover, connect, and grow with Faving. Your ultimate platform for finding and offering services.</p>
         <Link to="/signup">
           <Button className="mt-6">Sign Up Now</Button>
@@ -16,7 +17,7 @@ const LandingPage = () => {
       </header>
 
       <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-4">Features</h2>
+        <h2 className="text-3xl font-bold mb-4"><FaStar /> Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Card>
             <CardHeader>
@@ -46,7 +47,7 @@ const LandingPage = () => {
       </section>
 
       <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-4">User Testimonials</h2>
+        <h2 className="text-3xl font-bold mb-4"><FaUsers /> User Testimonials</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <TestimonialCard
             name="John Doe"

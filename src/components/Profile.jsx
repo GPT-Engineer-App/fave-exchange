@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { getAuth, updateProfile, deleteUser } from 'firebase/auth';
 import { useAuth } from './AuthProvider';
 import { Button } from '@/components/ui/button';
@@ -88,7 +89,7 @@ const Profile = () => {
 
   return (
     <div>
-      <h2 className="text-center text-2xl mb-4">Profile</h2>
+      <h2 className="text-center text-2xl mb-4"><FaUser /> Profile</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
       <form onSubmit={handleUpdateProfile}>
         <div className="mb-4">

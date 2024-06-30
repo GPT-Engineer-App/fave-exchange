@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
+import { FaUndo } from 'react-icons/fa';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'react-toastify';
@@ -51,7 +52,7 @@ const RefundForm = () => {
         <Input id="reason" {...register('reason')} />
         {errors.reason && <p className="text-red-500">{errors.reason.message}</p>}
       </div>
-      <Button type="submit" disabled={loading}>Submit Refund Request</Button>
+      <Button type="submit" disabled={loading}><FaUndo /> Submit Refund Request</Button>
     </form>
   );
 };

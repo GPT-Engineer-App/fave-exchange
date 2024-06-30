@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { toast } from 'react-toastify';
 import { getFirestore, collection, addDoc, serverTimestamp, doc, updateDoc, getDoc } from 'firebase/firestore';
 import { useAuth } from './AuthProvider';
+import { FaCreditCard } from 'react-icons/fa';
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -71,7 +72,7 @@ const PaymentForm = () => {
 
   return (
     <div>
-      <h2 className="text-center text-2xl mb-4">Make a Payment</h2>
+      <h2 className="text-center text-2xl mb-4"><FaCreditCard /> Make a Payment</h2>
       <form onSubmit={handleStripePayment}>
         <div className="mb-4">
           <Label htmlFor="amount">Amount</Label>

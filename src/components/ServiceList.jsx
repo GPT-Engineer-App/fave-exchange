@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { FaList } from 'react-icons/fa';
 
 const ServiceList = ({ services, onEdit, onDelete, featuredServices }) => {
   return (
     <div>
       {featuredServices && featuredServices.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-2xl mb-4">Featured Services</h2>
+          <h2 className="text-2xl mb-4"><FaList /> Featured Services</h2>
           {featuredServices.map((service) => (
             <div key={service.id} className="mb-4 p-4 border rounded">
               <h2 className="text-xl">{service.title}</h2>

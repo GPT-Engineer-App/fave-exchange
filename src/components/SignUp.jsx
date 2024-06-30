@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { FaUserPlus } from 'react-icons/fa';
 
 const SignUp = () => {
   const emailRef = useRef();
@@ -35,7 +36,7 @@ const SignUp = () => {
 
   return (
     <div>
-      <h2 className="text-center text-2xl mb-4">Sign Up</h2>
+      <h2 className="text-center text-2xl mb-4"><FaUserPlus /> Sign Up</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

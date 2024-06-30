@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { FaPlusCircle } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -45,7 +46,7 @@ const ServiceForm = ({ onSubmit, defaultValues }) => {
         <Label htmlFor="tags">Tags</Label>
         <Input id="tags" {...register('tags')} />
       </div>
-      <Button type="submit">Submit</Button>
+      <Button type="submit"><FaPlusCircle /> Submit</Button>
     </form>
   );
 };

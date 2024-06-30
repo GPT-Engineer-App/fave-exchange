@@ -7,6 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { FaComments } from 'react-icons/fa';
 
 const Forum = () => {
   const { currentUser } = useAuth();
@@ -43,7 +44,7 @@ const Forum = () => {
 
   return (
     <div>
-      <h2 className="text-2xl mb-4">Forum</h2>
+      <h2 className="text-2xl mb-4"><FaComments /> Forum</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <Label htmlFor="title">Title</Label>

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
+import { FaStarHalfAlt } from 'react-icons/fa';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -53,7 +54,7 @@ const ReviewForm = ({ serviceId }) => {
         <Textarea id="comment" {...register('comment')} />
         {errors.comment && <p className="text-red-500">{errors.comment.message}</p>}
       </div>
-      <Button type="submit" disabled={loading}>Submit Review</Button>
+      <Button type="submit" disabled={loading}><FaStarHalfAlt /> Submit Review</Button>
     </form>
   );
 };

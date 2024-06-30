@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaHistory } from 'react-icons/fa';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import { useAuth } from './AuthProvider';
 
@@ -20,7 +21,7 @@ const TransactionHistory = () => {
 
   return (
     <div>
-      <h2 className="text-2xl mb-4">Transaction History</h2>
+      <h2 className="text-2xl mb-4"><FaHistory /> Transaction History</h2>
       {transactions.length > 0 ? (
         transactions.map((transaction, index) => (
           <div key={index} className="mb-4 p-4 border rounded">

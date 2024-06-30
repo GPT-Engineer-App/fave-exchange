@@ -3,6 +3,7 @@ import ServiceRequestForm from '../components/ServiceRequestForm';
 import ServiceRequestList from '../components/ServiceRequestList';
 import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
+import { FaClipboardList } from 'react-icons/fa';
 
 const ServiceRequests = () => {
   const [requests, setRequests] = useState([]);
@@ -23,7 +24,7 @@ const ServiceRequests = () => {
 
   return (
     <div>
-      <h1 className="text-3xl mb-4">Service Requests</h1>
+      <h1 className="text-3xl mb-4"><FaClipboardList /> Service Requests</h1>
       <ServiceRequestForm onSubmit={handleAddRequest} />
       <ServiceRequestList requests={requests} onAccept={handleAcceptRequest} onDecline={handleDeclineRequest} />
     </div>

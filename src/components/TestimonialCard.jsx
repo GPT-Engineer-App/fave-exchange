@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { FaQuoteLeft } from 'react-icons/fa';
 
 export const TestimonialCard = ({ name, testimonial }) => {
   return (
@@ -8,7 +9,7 @@ export const TestimonialCard = ({ name, testimonial }) => {
         <CardTitle>{name}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p>{testimonial}</p>
+        <FaQuoteLeft /> <p>{testimonial}</p>
       </CardContent>
     </Card>
   );

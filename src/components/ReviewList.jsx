@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import { FaStar } from 'react-icons/fa';
 
 const ReviewList = ({ serviceId }) => {
   const [reviews, setReviews] = useState([]);
@@ -18,7 +19,7 @@ const ReviewList = ({ serviceId }) => {
 
   return (
     <div>
-      <h2 className="text-2xl mb-4">Reviews</h2>
+      <h2 className="text-2xl mb-4"><FaStar /> Reviews</h2>
       {reviews.length > 0 ? (
         reviews.map((review, index) => (
           <div key={index} className="mb-4 p-4 border rounded">
