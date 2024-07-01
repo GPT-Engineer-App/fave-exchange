@@ -157,6 +157,18 @@
     text-align: center;
   }
 
+  @media (max-width: 1024px) {
+    .grid-container {
+      grid-template-areas:
+        'header header header'
+        'main main main'
+        'sidebar sidebar sidebar'
+        'footer footer footer';
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto auto;
+    }
+  }
+
   @media (max-width: 768px) {
     .grid-container {
       grid-template-areas:
