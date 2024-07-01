@@ -1,7 +1,6 @@
 import './firebaseConfig';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Index from "./pages/Index.jsx";
-import LandingPage from "./pages/LandingPage.jsx";
 import SignUp from "./components/SignUp.jsx";
 import Login from "./components/Login.jsx";
 import Profile from "./components/Profile.jsx";
@@ -43,7 +42,6 @@ function App() {
                   <Route path="/admin" element={<AdminPanel />} />
                   <Route path="/forum" element={<Forum />} />
                   <Route path="/group-services" element={<GroupServices />} />
-                  <Route path="/landing" element={<LandingPage />} />
                 </Routes>
               </CSSTransition>
             </TransitionGroup>
