@@ -40,11 +40,11 @@ const MessageList = () => {
   };
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-2xl mb-4"><FaEnvelopeOpenText /> Messages</h2>
       {messages.length > 0 ? (
         messages.map((message, index) => (
-          <div key={index} className="mb-4 p-4 border rounded" onClick={() => handleReadReceipt(message.id)}>
+          <div key={index} className="mb-4 p-4 border rounded spacing-y-xs" onClick={() => handleReadReceipt(message.id)}>
             <p><strong>From:</strong> {message.sender}</p>
             <p><strong>Message:</strong> {message.message}</p>
             {message.files && message.files.map((file, idx) => (

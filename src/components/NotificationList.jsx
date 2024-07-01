@@ -20,11 +20,11 @@ const NotificationList = () => {
   }, [currentUser]);
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-2xl mb-4"><FaBell /> Notifications</h2>
       {notifications.length > 0 ? (
         notifications.map((notification, index) => (
-          <div key={index} className="mb-4 p-4 border rounded">
+          <div key={index} className="mb-4 p-4 border rounded spacing-y-xs">
             <p><strong>Type:</strong> {notification.type}</p>
             <p><strong>Message:</strong> {notification.message}</p>
             <p><strong>Date:</strong> {new Date(notification.createdAt.seconds * 1000).toLocaleDateString()}</p>

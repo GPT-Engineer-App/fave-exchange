@@ -7,14 +7,14 @@ const Index = () => {
   const { currentUser } = useAuth();
 
   return (
-    <div className="h-screen w-screen flex items-center justify-center">
-      <div>
+    <div className="h-screen w-screen flex items-center justify-center spacing-md">
+      <div className="spacing-y-sm">
         <h1 className="text-3xl text-center"><FaHome /> Your Blank Canvas</h1>
         <p className="text-center">
           Chat with the agent to start making edits.
         </p>
         {currentUser ? (
-          <div className="text-center">
+          <div className="text-center spacing-y-sm">
             <p>Welcome, {currentUser.email}</p>
             <Link to="/profile">
               <Button>Profile</Button>
@@ -24,7 +24,7 @@ const Index = () => {
             </Link>
           </div>
         ) : (
-          <div className="text-center">
+          <div className="text-center spacing-y-sm">
             <Link to="/signup">
               <Button>Sign Up</Button>
             </Link>

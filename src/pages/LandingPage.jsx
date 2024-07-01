@@ -7,18 +7,18 @@ import { TestimonialCard } from '@/components/TestimonialCard';
 
 const LandingPage = () => {
   return (
-    <div className="container mx-auto p-8">
-      <header className="text-center mb-12">
+    <div className="container mx-auto p-8 spacing-md">
+      <header className="text-center mb-12 spacing-y-sm">
         <h1 className="text-4xl font-bold mb-4"><FaRocket /> Welcome to Faving</h1>
-        <p className="text-lg">Discover, connect, and grow with Faving. Your ultimate platform for finding and offering services.</p>
+        <p className="text-lg spacing-y-xs">Discover, connect, and grow with Faving. Your ultimate platform for finding and offering services.</p>
         <Link to="/signup">
           <Button className="mt-6">Sign Up Now</Button>
         </Link>
       </header>
 
-      <section className="mb-12">
+      <section className="mb-12 spacing-y-sm">
         <h2 className="text-3xl font-bold mb-4"><FaStar /> Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 spacing-y-xs">
           <Card>
             <CardHeader>
               <CardTitle>Feature 1</CardTitle>
@@ -46,9 +46,9 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="mb-12">
+      <section className="mb-12 spacing-y-sm">
         <h2 className="text-3xl font-bold mb-4"><FaUsers /> User Testimonials</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 spacing-y-xs">
           <TestimonialCard
             name="John Doe"
             testimonial="Faving has transformed the way I find and offer services. It's user-friendly and highly effective."
@@ -60,7 +60,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <section className="text-center">
+      <section className="text-center spacing-y-sm">
         <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
         <Link to="/signup">
           <Button className="mt-6">Sign Up Now</Button>

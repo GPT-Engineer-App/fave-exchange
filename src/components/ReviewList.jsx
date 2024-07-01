@@ -18,11 +18,11 @@ const ReviewList = ({ serviceId }) => {
   }, [serviceId]);
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-2xl mb-4"><FaStar /> Reviews</h2>
       {reviews.length > 0 ? (
         reviews.map((review, index) => (
-          <div key={index} className="mb-4 p-4 border rounded">
+          <div key={index} className="mb-4 p-4 border rounded spacing-y-xs">
             <p><strong>Rating:</strong> {review.rating}</p>
             <p><strong>Comment:</strong> {review.comment}</p>
             <p><strong>Date:</strong> {new Date(review.createdAt.seconds * 1000).toLocaleDateString()}</p>

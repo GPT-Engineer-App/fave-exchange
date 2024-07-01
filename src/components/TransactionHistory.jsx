@@ -20,11 +20,11 @@ const TransactionHistory = () => {
   }, [currentUser]);
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-2xl mb-4"><FaHistory /> Transaction History</h2>
       {transactions.length > 0 ? (
         transactions.map((transaction, index) => (
-          <div key={index} className="mb-4 p-4 border rounded">
+          <div key={index} className="mb-4 p-4 border rounded spacing-y-xs">
             <p><strong>Amount:</strong> {transaction.amount}</p>
             <p><strong>Date:</strong> {new Date(transaction.createdAt.seconds * 1000).toLocaleDateString()}</p>
             <p><strong>Status:</strong> {transaction.status}</p>

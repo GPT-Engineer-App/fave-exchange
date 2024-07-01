@@ -71,10 +71,10 @@ const PaymentForm = () => {
   };
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-center text-2xl mb-4"><FaCreditCard /> Make a Payment</h2>
-      <form onSubmit={handleStripePayment}>
-        <div className="mb-4">
+      <form onSubmit={handleStripePayment} className="spacing-y-sm">
+        <div className="spacing-y-xs mb-4">
           <Label htmlFor="amount">Amount</Label>
           <Input
             id="amount"
@@ -84,7 +84,7 @@ const PaymentForm = () => {
             required
           />
         </div>
-        <div className="mb-4">
+        <div className="spacing-y-xs mb-4">
           <Label htmlFor="card-element">Credit Card</Label>
           <CardElement id="card-element" />
         </div>

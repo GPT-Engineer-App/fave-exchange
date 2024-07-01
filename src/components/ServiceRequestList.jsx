@@ -4,10 +4,10 @@ import { FaTasks } from 'react-icons/fa';
 
 const ServiceRequestList = ({ requests, onAccept, onDecline }) => {
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-2xl mb-4"><FaTasks /> Service Requests</h2>
       {requests.map((request) => (
-        <div key={request.id} className="mb-4 p-4 border rounded">
+        <div key={request.id} className="mb-4 p-4 border rounded spacing-y-xs">
           <h2 className="text-xl"><FaTasks /> Service Request</h2>
           <p><strong>Date:</strong> {request.date}</p>
           <p><strong>Time:</strong> {request.time}</p>

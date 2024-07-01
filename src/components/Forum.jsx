@@ -43,23 +43,23 @@ const Forum = () => {
   };
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-2xl mb-4"><FaComments /> Forum</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+      <form onSubmit={handleSubmit} className="spacing-y-sm">
+        <div className="mb-4 spacing-y-xs">
           <Label htmlFor="title">Title</Label>
           <Input id="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 spacing-y-xs">
           <Label htmlFor="content">Content</Label>
           <ReactQuill value={content} onChange={setContent} />
         </div>
         <Button type="submit">Post</Button>
       </form>
-      <div className="mt-8">
+      <div className="mt-8 spacing-y-sm">
         <h3 className="text-xl mb-4">Posts</h3>
         {posts.map((post, index) => (
-          <div key={index} className="mb-4 p-4 border rounded">
+          <div key={index} className="mb-4 p-4 border rounded spacing-y-xs">
             <h4 className="text-lg">{post.title}</h4>
             <p>{post.content}</p>
             <p><strong>Author:</strong> {post.author}</p>

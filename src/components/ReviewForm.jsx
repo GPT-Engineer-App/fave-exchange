@@ -43,13 +43,13 @@ const ReviewForm = ({ serviceId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="spacing-md">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="rating">Rating</Label>
         <Input id="rating" type="number" {...register('rating')} />
         {errors.rating && <p className="text-red-500">{errors.rating.message}</p>}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="comment">Comment</Label>
         <Textarea id="comment" {...register('comment')} />
         {errors.comment && <p className="text-red-500">{errors.comment.message}</p>}

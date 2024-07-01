@@ -4,7 +4,7 @@ import { FaQuoteLeft } from 'react-icons/fa';
 
 export const TestimonialCard = ({ name, testimonial }) => {
   return (
-    <Card>
+    <Card className="spacing-md">
       <CardHeader>
         <CardTitle>{name}</CardTitle>
       </CardHeader>

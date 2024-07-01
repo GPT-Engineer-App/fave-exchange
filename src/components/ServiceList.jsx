@@ -4,12 +4,12 @@ import { FaList } from 'react-icons/fa';
 
 const ServiceList = ({ services, onEdit, onDelete, featuredServices }) => {
   return (
-    <div>
+    <div className="spacing-md">
       {featuredServices && featuredServices.length > 0 && (
         <div className="mb-8">
           <h2 className="text-2xl mb-4"><FaList /> Featured Services</h2>
           {featuredServices.map((service) => (
-            <div key={service.id} className="mb-4 p-4 border rounded">
+            <div key={service.id} className="mb-4 p-4 border rounded spacing-y-xs">
               <h2 className="text-xl">{service.title}</h2>
               <p>{service.description}</p>
               <p><strong>Category:</strong> {service.category}</p>
@@ -22,7 +22,7 @@ const ServiceList = ({ services, onEdit, onDelete, featuredServices }) => {
       )}
       <div>
         {services.map((service) => (
-          <div key={service.id} className="mb-4 p-4 border rounded">
+          <div key={service.id} className="mb-4 p-4 border rounded spacing-y-xs">
             <h2 className="text-xl">{service.title}</h2>
             <p>{service.description}</p>
             <p><strong>Category:</strong> {service.category}</p>

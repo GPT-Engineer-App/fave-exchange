@@ -103,13 +103,13 @@ const ServiceListings = () => {
     });
 
   return (
-    <div>
+    <div className="spacing-md">
       <h1 className="text-3xl mb-4"><FaListAlt /> Service Listings</h1>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-sm">
         <Label htmlFor="search">Search</Label>
         <Input id="search" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-sm">
         <Label htmlFor="filter"><FaFilter /> Filter by Category</Label>
         <Select id="filter" value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>
           <option value="">All</option>
@@ -118,7 +118,7 @@ const ServiceListings = () => {
           {/* Add more categories as needed */}
         </Select>
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-sm">
         <Label htmlFor="sort"><FaSort /> Sort by</Label>
         <Select id="sort" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
           <option value="">None</option>
@@ -126,12 +126,12 @@ const ServiceListings = () => {
           <option value="category">Category</option>
         </Select>
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-sm">
         <Label htmlFor="price-range">Price Range</Label>
         <Slider id="price-range" value={priceRange} onChange={setPriceRange} max={100} step={1} />
         <div>Price: {priceRange[0]} - {priceRange[1]}</div>
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-sm">
         <Label htmlFor="availability">Availability</Label>
         <Checkbox id="availability" checked={availability} onChange={(e) => setAvailability(e.target.checked)} />
       </div>
@@ -147,10 +147,11 @@ const ServiceListings = () => {
         }}
         onDelete={handleDeleteService}
         featuredServices={featuredServices}
+        className="spacing-y-xs"
       />
       <ReviewForm serviceId={selectedServiceId} />
       <ReviewList serviceId={selectedServiceId} />
-      <div className="mt-4">
+      <div className="mt-4 spacing-y-sm">
         <h2 className="text-2xl mb-4">Recommended Services</h2>
         <ServiceList
           services={recommendedServices}
@@ -159,9 +160,10 @@ const ServiceListings = () => {
             setSelectedServiceId(service.id);
           }}
           onDelete={handleDeleteService}
+          className="spacing-y-xs"
         />
       </div>
-      <div className="mt-4">
+      <div className="mt-4 spacing-y-sm">
         <h2 className="text-2xl mb-4"><FaMapMarkerAlt /> Map View</h2>
         <MapContainer center={location} zoom={13} style={{ height: '400px', width: '100%' }}>
           <TileLayer

@@ -88,35 +88,35 @@ const Profile = () => {
   };
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-center text-2xl mb-4"><FaUser /> Profile</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
-      <form onSubmit={handleUpdateProfile}>
-        <div className="mb-4">
+      <form onSubmit={handleUpdateProfile} className="spacing-y-sm">
+        <div className="spacing-y-xs">
           <Label htmlFor="name">Name</Label>
           <Input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} required />
         </div>
-        <div className="mb-4">
+        <div className="spacing-y-xs">
           <Label htmlFor="bio">Bio</Label>
           <Input type="text" id="bio" value={bio} onChange={(e) => setBio(e.target.value)} />
         </div>
-        <div className="mb-4">
+        <div className="spacing-y-xs">
           <Label htmlFor="profile-picture">Profile Picture URL</Label>
           <Input type="text" id="profile-picture" value={profilePicture} onChange={(e) => setProfilePicture(e.target.value)} />
         </div>
-        <div className="mb-4">
+        <div className="spacing-y-xs">
           <Label htmlFor="skills">Skills</Label>
           <Input type="text" id="skills" value={skills} onChange={(e) => setSkills(e.target.value)} />
         </div>
-        <div className="mb-4">
+        <div className="spacing-y-xs">
           <Label htmlFor="interests">Interests</Label>
           <Input type="text" id="interests" value={interests} onChange={(e) => setInterests(e.target.value)} />
         </div>
-        <div className="mb-4">
+        <div className="spacing-y-xs">
           <Label htmlFor="social-media-links">Social Media Links</Label>
           <Input type="text" id="social-media-links" value={socialMediaLinks} onChange={(e) => setSocialMediaLinks(e.target.value)} />
         </div>
-        <div className="mb-4">
+        <div className="spacing-y-xs">
           <Label htmlFor="is-verified">Verified</Label>
           <Input type="checkbox" id="is-verified" checked={isVerified} onChange={(e) => setIsVerified(e.target.checked)} />
         </div>
@@ -127,8 +127,8 @@ const Profile = () => {
       <Button variant="destructive" onClick={handleDeleteProfile} disabled={loading}>
         Delete Profile
       </Button>
-      <PointsSystem />
-      <Badges />
+      <PointsSystem className="spacing-y-sm" />
+      <Badges className="spacing-y-sm" />
     </div>
   );
 };

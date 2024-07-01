@@ -24,11 +24,11 @@ const Badges = () => {
   };
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-2xl mb-4">Your Badges</h2>
-      <ul>
+      <ul className="spacing-y-sm">
         {badges.map((badge, index) => (
-          <li key={index}><FaMedal /> {badge}</li>
+          <li key={index} className="spacing-y-xs"><FaMedal /> {badge}</li>
         ))}
       </ul>
     </div>

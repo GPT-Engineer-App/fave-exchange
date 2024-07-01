@@ -41,13 +41,13 @@ const RefundForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="spacing-md">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="transactionId">Transaction ID</Label>
         <Input id="transactionId" {...register('transactionId')} />
         {errors.transactionId && <p className="text-red-500">{errors.transactionId.message}</p>}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="reason">Reason</Label>
         <Input id="reason" {...register('reason')} />
         {errors.reason && <p className="text-red-500">{errors.reason.message}</p>}
