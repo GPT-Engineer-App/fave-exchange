@@ -169,6 +169,16 @@
     }
   }
 
+  @media (max-width: 480px) {
+    .header {
+      font-size: 1.5rem;
+    }
+
+    .sidebar, .main, .footer {
+      padding: 0.5rem;
+    }
+  }
+
   .spacing-xs {
     margin: var(--spacing-xs);
     padding: var(--spacing-xs);
