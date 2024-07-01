@@ -1,10 +1,7 @@
 import './firebaseConfig';
-import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
-import { FaUser, FaBell, FaEnvelope, FaClipboardList, FaSignOutAlt } from 'react-icons/fa';
-import { useAuth } from './components/AuthProvider';
-import { getAuth, signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Index from "./pages/Index.jsx";
+import LandingPage from "./pages/LandingPage.jsx";
 import SignUp from "./components/SignUp.jsx";
 import Login from "./components/Login.jsx";
 import Profile from "./components/Profile.jsx";
@@ -22,54 +19,12 @@ import GroupServices from "./components/GroupServices.jsx";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 function App() {
-  const { currentUser } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    const auth = getAuth();
-    signOut(auth).then(() => {
-      navigate('/login');
-    }).catch((error) => {
-      console.error('Logout error:', error);
-    });
-  };
-
   return (
     <AuthProvider>
       <Router>
         <div className="grid-container">
           <header className="header">Header</header>
-          <aside className="sidebar">
-            <div className="profile-section">
-              <Link to="/profile" className="sidebar-link">
-                <FaUser className="sidebar-icon" /> Profile
-              </Link>
-            </div>
-            <nav className="sidebar-nav">
-              <ul>
-                <li>
-                  <Link to="/notifications" className="sidebar-link">
-                    <FaBell className="sidebar-icon" /> Notifications
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/messages" className="sidebar-link">
-                    <FaEnvelope className="sidebar-icon" /> Messages
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/service-requests" className="sidebar-link">
-                    <FaClipboardList className="sidebar-icon" /> Service Requests
-                  </Link>
-                </li>
-                <li>
-                  <button onClick={handleLogout} className="sidebar-link">
-                    <FaSignOutAlt className="sidebar-icon" /> Logout
-                  </button>
-                </li>
-              </ul>
-            </nav>
-          </aside>
+          <aside className="sidebar">Sidebar</aside>
           <main className="main">
             <TransitionGroup>
               <CSSTransition timeout={300} classNames="fade">
@@ -88,6 +43,7 @@ function App() {
                   <Route path="/admin" element={<AdminPanel />} />
                   <Route path="/forum" element={<Forum />} />
                   <Route path="/group-services" element={<GroupServices />} />
+                  <Route path="/landing" element={<LandingPage />} />
                 </Routes>
               </CSSTransition>
             </TransitionGroup>
