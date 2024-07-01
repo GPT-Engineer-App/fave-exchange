@@ -26,23 +26,23 @@ const ServiceForm = ({ onSubmit, defaultValues }) => {
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="spacing-md">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="title">Title</Label>
         <Input id="title" {...register('title')} />
         {errors.title && <p className="text-red-500">{errors.title.message}</p>}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="description">Description</Label>
         <Textarea id="description" {...register('description')} />
         {errors.description && <p className="text-red-500">{errors.description.message}</p>}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="category">Category</Label>
         <Input id="category" {...register('category')} />
         {errors.category && <p className="text-red-500">{errors.category.message}</p>}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="tags">Tags</Label>
         <Input id="tags" {...register('tags')} />
       </div>

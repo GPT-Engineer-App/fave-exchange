@@ -38,9 +38,9 @@ const PointsSystem = () => {
   };
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-2xl mb-4"><FaStar /> Your Points: {points}</h2>
-      <button onClick={() => addPoints(currentUser.uid, 10)}>Add 10 Points</button>
+      <button className="spacing-y-sm" onClick={() => addPoints(currentUser.uid, 10)}>Add 10 Points</button>
     </div>
   );
 };

@@ -57,19 +57,19 @@ const AdminPanel = () => {
   };
 
   return (
-    <div>
+    <div className="spacing-md">
       <h1 className="text-3xl mb-4">Admin Panel</h1>
       <Tabs defaultValue="users">
-        <TabsList>
-          <TabsTrigger value="users"><FaUserShield /> Users</TabsTrigger>
-          <TabsTrigger value="services"><FaServicestack /> Services</TabsTrigger>
-          <TabsTrigger value="transactions"><FaMoneyCheckAlt /> Transactions</TabsTrigger>
-          <TabsTrigger value="reviews"><FaStarHalfAlt /> Reviews</TabsTrigger>
+        <TabsList className="spacing-y-sm">
+          <TabsTrigger value="users" className="spacing-y-xs"><FaUserShield /> Users</TabsTrigger>
+          <TabsTrigger value="services" className="spacing-y-xs"><FaServicestack /> Services</TabsTrigger>
+          <TabsTrigger value="transactions" className="spacing-y-xs"><FaMoneyCheckAlt /> Transactions</TabsTrigger>
+          <TabsTrigger value="reviews" className="spacing-y-xs"><FaStarHalfAlt /> Reviews</TabsTrigger>
         </TabsList>
         <TabsContent value="users">
-          <Table>
+          <Table className="spacing-y-sm">
             <TableHeader>
-              <TableRow>
+              <TableRow className="spacing-y-xs">
                 <TableHead>ID</TableHead>
                 <TableHead>Email</TableHead>
                 <TableHead>Actions</TableHead>
@@ -77,7 +77,7 @@ const AdminPanel = () => {
             </TableHeader>
             <TableBody>
               {users.map(user => (
-                <TableRow key={user.id}>
+                <TableRow key={user.id} className="spacing-y-xs">
                   <TableCell>{user.id}</TableCell>
                   <TableCell>{user.email}</TableCell>
                   <TableCell>
@@ -89,9 +89,9 @@ const AdminPanel = () => {
           </Table>
         </TabsContent>
         <TabsContent value="services">
-          <Table>
+          <Table className="spacing-y-sm">
             <TableHeader>
-              <TableRow>
+              <TableRow className="spacing-y-xs">
                 <TableHead>ID</TableHead>
                 <TableHead>Title</TableHead>
                 <TableHead>Actions</TableHead>
@@ -99,7 +99,7 @@ const AdminPanel = () => {
             </TableHeader>
             <TableBody>
               {services.map(service => (
-                <TableRow key={service.id}>
+                <TableRow key={service.id} className="spacing-y-xs">
                   <TableCell>{service.id}</TableCell>
                   <TableCell>{service.title}</TableCell>
                   <TableCell>
@@ -111,9 +111,9 @@ const AdminPanel = () => {
           </Table>
         </TabsContent>
         <TabsContent value="transactions">
-          <Table>
+          <Table className="spacing-y-sm">
             <TableHeader>
-              <TableRow>
+              <TableRow className="spacing-y-xs">
                 <TableHead>ID</TableHead>
                 <TableHead>Amount</TableHead>
                 <TableHead>Status</TableHead>
@@ -121,7 +121,7 @@ const AdminPanel = () => {
             </TableHeader>
             <TableBody>
               {transactions.map(transaction => (
-                <TableRow key={transaction.id}>
+                <TableRow key={transaction.id} className="spacing-y-xs">
                   <TableCell>{transaction.id}</TableCell>
                   <TableCell>{transaction.amount}</TableCell>
                   <TableCell>{transaction.status}</TableCell>
@@ -131,9 +131,9 @@ const AdminPanel = () => {
           </Table>
         </TabsContent>
         <TabsContent value="reviews">
-          <Table>
+          <Table className="spacing-y-sm">
             <TableHeader>
-              <TableRow>
+              <TableRow className="spacing-y-xs">
                 <TableHead>ID</TableHead>
                 <TableHead>Rating</TableHead>
                 <TableHead>Comment</TableHead>
@@ -142,7 +142,7 @@ const AdminPanel = () => {
             </TableHeader>
             <TableBody>
               {reviews.map(review => (
-                <TableRow key={review.id}>
+                <TableRow key={review.id} className="spacing-y-xs">
                   <TableCell>{review.id}</TableCell>
                   <TableCell>{review.rating}</TableCell>
                   <TableCell>{review.comment}</TableCell>

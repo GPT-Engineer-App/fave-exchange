@@ -30,15 +30,15 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="spacing-md">
       <h2 className="text-center text-2xl mb-4"><FaSignInAlt /> Log In</h2>
       {error && <div className="text-red-500 mb-4">{error}</div>}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+      <form onSubmit={handleSubmit} className="spacing-y-sm">
+        <div className="mb-4 spacing-y-xs">
           <Label htmlFor="email">Email</Label>
           <Input type="email" id="email" ref={emailRef} required />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 spacing-y-xs">
           <Label htmlFor="password">Password</Label>
           <Input type="password" id="password" ref={passwordRef} required />
         </div>

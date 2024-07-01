@@ -30,18 +30,18 @@ const ServiceRequestForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
-      <div className="mb-4">
+    <form onSubmit={handleSubmit(handleFormSubmit)} className="spacing-md">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="date">Date</Label>
         <Input id="date" type="date" {...register('date')} />
         {errors.date && <p className="text-red-500">{errors.date.message}</p>}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="time">Time</Label>
         <Input id="time" type="time" {...register('time')} />
         {errors.time && <p className="text-red-500">{errors.time.message}</p>}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="details">Additional Details</Label>
         <Textarea id="details" {...register('details')} />
         {errors.details && <p className="text-red-500">{errors.details.message}</p>}

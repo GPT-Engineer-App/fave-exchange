@@ -59,18 +59,18 @@ const MessageForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="mb-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="spacing-md">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="recipient">Recipient</Label>
         <Input id="recipient" {...register('recipient')} />
         {errors.recipient && <p className="text-red-500">{errors.recipient.message}</p>}
       </div>
-      <div className="mb-4">
+      <div className="mb-4 spacing-y-xs">
         <Label htmlFor="message">Message</Label>
         <Textarea id="message" {...register('message')} />
         {errors.message && <p className="text-red-500">{errors.message.message}</p>}
       </div>
-      <div {...getRootProps()} className="mb-4 border-dashed border-2 p-4">
+      <div {...getRootProps()} className="mb-4 border-dashed border-2 p-4 spacing-y-xs">
         <input {...getInputProps()} />
         <p>Drag & drop some files here, or click to select files</p>
       </div>

@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={value}>
+    <AuthContext.Provider value={value} className="spacing-md">
       {!loading && children}
     </AuthContext.Provider>
   );

@@ -23,10 +23,12 @@ const ServiceRequests = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-3xl mb-4"><FaClipboardList /> Service Requests</h1>
-      <ServiceRequestForm onSubmit={handleAddRequest} />
-      <ServiceRequestList requests={requests} onAccept={handleAcceptRequest} onDecline={handleDeclineRequest} />
+    <div className="spacing-md">
+      <div className="spacing-y-sm">
+        <h1 className="text-3xl mb-4"><FaClipboardList /> Service Requests</h1>
+        <ServiceRequestForm onSubmit={handleAddRequest} />
+        <ServiceRequestList requests={requests} onAccept={handleAcceptRequest} onDecline={handleDeclineRequest} />
+      </div>
     </div>
   );
 };
